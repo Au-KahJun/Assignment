@@ -1,0 +1,87 @@
+﻿@model test1.Models.AddEmployeeViewModel
+@{
+}
+<form>
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name">
+        
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">User Name</label>
+        <input type="text" class="form-control" asp-for="UserName">
+
+
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Email Address</label>
+        <input type="email" class="form-control" asp-for="Email">
+
+
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Password</label>
+        <input type=" " class="form-control" asp-for="Password">
+
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Confirm Password</label>
+        <input type="text" class="form-control" asp-for="ConfPassword">
+
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Confirm Password</label>
+        <input type="text" class="form-control" asp-for="ConfPassword">
+
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Join Date</label>
+        <input type="date" class="form-control" asp-for="Date">
+
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Position</label>
+        <select class="form-control" asp-for="Position">
+            <option>Director</option>
+            <option>Human Resource</option>
+            <option>Finance</option>
+            <option>Admin</option>
+            <option>Manager</option>
+            <option>Quality Assuarance Engineer</option>
+            <option>Solution Architect</option>
+            <option>Business Analyst</option>
+            <option>Art Director </option>
+            <option>Team Lead</option>
+            <option>Senior Software Engineer</option>
+            <option>Software Engineer</option>
+            <option>User Interface Engineer</option>
+            <option>Support Engineer</option>
+            <option>Infrastructure Support Engineer</option>
+        </select>
+
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Team</label>
+        <select class="form-control" asp-for="Team">
+            <option>Operation</option>
+            <option>Project Management</option>
+            <option>Architect</option>
+            <option>Designer</option>
+            <option>Development</option>
+            <option>Infrastructure Support</option>
+            <option>Production Support</option>
+            <option>Quality Assuarance</option>
+            
+        </select>
+
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Security</label>
+        <input type="text" class="form-control" asp-for="Security">
+
+    </div>
+    
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
