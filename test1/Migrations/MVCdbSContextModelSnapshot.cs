@@ -55,6 +55,10 @@ namespace test1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Team")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

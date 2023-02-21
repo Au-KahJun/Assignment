@@ -21,5 +21,6 @@
         public string Email { get; set; }
         public DateTime CreatedDate { get; set; }
 
+        public string Status { get; set; }
     }
 }
