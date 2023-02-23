@@ -1,17 +1,24 @@
-﻿@model test1.Models.AddEmployeeViewModel
+﻿@model test1.Models.UpdateEmployeeVM
 @{
 }
-<h1>Add Employee</h1>
-<form method="post" action="Add" class=" mt-5">
+
+<h1>View Employee</h1>
+<form method="post" action="View" class=" mt-5">
+
+    <div class="mb-3">
+        <label for="" class="form-label">ID</label>
+        <input type="text" class="form-control" asp-for="Id" readonly>
+
+    </div>
     <div class="mb-3">
         <label for="" class="form-label">User ID</label>
         <input type="text" class="form-control" asp-for="UID">
 
     </div>
     <div class="mb-3">
-        <label for="" class="form-label" >Name</label>
+        <label for="" class="form-label">Name</label>
         <input type="text" class="form-control" asp-for="Name">
-        
+
     </div>
 
     <div class="mb-3">
@@ -36,7 +43,7 @@
         <input type="text" class="form-control" asp-for="ConfPassword">
 
     </div>
-   
+
     <div class="mb-3">
         <label for="" class="form-label">Join Date</label>
         <input type="date" class="form-control" asp-for="Date">
@@ -74,7 +81,7 @@
             <option>Infrastructure Support</option>
             <option>Production Support</option>
             <option>Quality Assuarance</option>
-            
+
         </select>
 
     </div>
@@ -84,19 +91,19 @@
             <option>Active</option>
             <option>Disabled</option>
             <option>Suspended</option>
-           
+
 
         </select>
 
     </div>
 
-  
+
     <div class="mb-3">
         <label for="" class="form-label">Security</label>
         <input type="text" class="form-control" asp-for="Security">
 
     </div>
-    
-    
+
+
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

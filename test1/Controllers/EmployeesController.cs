@@ -1,7 +1,8 @@
-﻿using test1.Models;
-using Microsoft.AspNetCore.Mvc;
-using test1.Models.Domain;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using test1.Data;
+using test1.Models;
+using test1.Models.Domain;
 
 namespace test1.Controllers
 {
@@ -13,19 +14,32 @@ namespace test1.Controllers
             this.mvcDbSContext = mvcDbSContext;
         }
 
-        public MVCdbSContext MvcDbSContext { get; }
+
 
         [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            var employees = await mvcDbSContext.Employees.ToListAsync();
+            return View(employees);
+        }
+
         public IActionResult Add()
         {
             return View();
         }
-        public async Task<IActionResult>  Add(AddEmployeeViewModel addEmployeeRequest)
+
+
+        //public MVCdbSContext MvcDbSContext { get; }
+
+        [HttpGet]
+
+        public async Task<IActionResult> Add(AddEmployeeViewModel addEmployeeRequest)
         {
             var employee = new Employee()
             {
                 Id = Guid.NewGuid(),
 
+                UID = addEmployeeRequest.UID,
 
                 Name = addEmployeeRequest.Name,
 
@@ -52,7 +66,92 @@ namespace test1.Controllers
             await mvcDbSContext.Employees.AddAsync(employee);
             await mvcDbSContext.SaveChangesAsync();
             return RedirectToAction("Add");
-}
+        }
 
+        [HttpGet]
+        public async Task<IActionResult> View(Guid id)
+        {
+            var employee = await mvcDbSContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
+            if (employee != null)
+            {
+                var viewModel = new UpdateEmployeeVM()
+                {
+
+                    Id = employee.Id,
+
+                    UID = employee.UID,
+                    Name = employee.Name,
+
+                    UserName = employee.UserName,
+
+
+                    Password = employee.Password,
+
+                    ConfPassword = employee.ConfPassword,
+
+                    Position = employee.Position,
+
+                    Team = employee.Team,
+
+                    Security = employee.Security,
+
+                    Email = employee.Email,
+
+                    CreatedDate = employee.CreatedDate,
+
+                    Status = employee.Status
+                };
+                return await Task.Run(() => View("View", viewModel));
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> View(UpdateEmployeeVM model)
+        {
+            var employee = await mvcDbSContext.Employees.FindAsync(model.Id);
+            if (employee != null)
+            {
+                employee.UID = model.UID;
+                employee.Name = model.Name;
+                employee.Password = model.Password;
+                employee.ConfPassword = model.ConfPassword;
+                employee.Position = model.Position;
+                employee.Team = model.Team;
+                employee.Security = model.Security;
+                employee.Email = model.Email;
+                employee.CreatedDate = model.CreatedDate;
+                employee.Status = model.Status;
+
+                await mvcDbSContext.SaveChangesAsync();
+
+                return RedirectToAction("index");
+
+
+            }
+
+            return RedirectToAction("index");
+        }
+
+        //[HttpGet]
+        //public async Task<IActionResult> Login()
+        //{
+
+        //    await Task.Delay(1000);
+
+
+        //    if (  Username == "employee" && Password == "password")
+        //    {
+
+        //        return RedirectToPage("/Index");
+        //    }
+        //    else
+        //    {
+        //        ModelState.AddModelError("", "Invalid username or password");
+        //        return RedirectToAction("Login");
+        //    }
+        //}
     }
 }

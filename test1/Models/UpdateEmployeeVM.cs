@@ -1,8 +1,7 @@
-﻿namespace test1.Models.Domain
+﻿namespace test1.Models
 {
-    public class Employee
+    public class UpdateEmployeeVM
     {
-
         public Guid Id { get; set; }
         public string UID { get; set; }
 
@@ -13,6 +12,8 @@
         public string Password { get; set; }
 
         public string ConfPassword { get; set; }
+
+        public DateTime Date { get; set; }
 
         public string Position { get; set; }
 

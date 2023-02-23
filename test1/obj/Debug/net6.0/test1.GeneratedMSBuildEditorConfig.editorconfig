@@ -16,8 +16,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\AuKahJun\OneDrive - Nettium Sdn. Bhd\Documents\GitHub\Assignment\test1
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/AuKahJun/OneDrive - Nettium Sdn. Bhd/Documents/GitHub/Assignment/test1/Views/Access/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/AuKahJun/OneDrive - Nettium Sdn. Bhd/Documents/GitHub/Assignment/test1/Views/Employees/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AuKahJun/OneDrive - Nettium Sdn. Bhd/Documents/GitHub/Assignment/test1/Views/Employees/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/AuKahJun/OneDrive - Nettium Sdn. Bhd/Documents/GitHub/Assignment/test1/Views/Employees/View.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXFZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/AuKahJun/OneDrive - Nettium Sdn. Bhd/Documents/GitHub/Assignment/test1/Views/Home/Index.cshtml]
