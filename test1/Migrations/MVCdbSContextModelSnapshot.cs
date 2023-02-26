@@ -63,9 +63,8 @@ namespace test1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UID")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserName")
                         .IsRequired()

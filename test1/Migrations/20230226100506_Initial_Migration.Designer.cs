@@ -12,8 +12,8 @@ using test1.Data;
 namespace test1.Migrations
 {
     [DbContext(typeof(MVCdbSContext))]
-    [Migration("20230223092311_initial_migration")]
-    partial class initial_migration
+    [Migration("20230226100506_Initial_Migration")]
+    partial class Initial_Migration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,9 +66,8 @@ namespace test1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UID")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserName")
                         .IsRequired()

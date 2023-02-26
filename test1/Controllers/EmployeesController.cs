@@ -25,18 +25,24 @@ namespace test1.Controllers
 
         public IActionResult Add()
         {
+
             return View();
         }
 
 
         //public MVCdbSContext MvcDbSContext { get; }
 
-        [HttpGet]
+        [HttpPost]
 
         public async Task<IActionResult> Add(AddEmployeeViewModel addEmployeeRequest)
         {
             var employee = new Employee()
             {
+
+
+
+
+
                 Id = Guid.NewGuid(),
 
                 UID = addEmployeeRequest.UID,
@@ -63,9 +69,21 @@ namespace test1.Controllers
                 Status = addEmployeeRequest.Status
 
             };
-            await mvcDbSContext.Employees.AddAsync(employee);
-            await mvcDbSContext.SaveChangesAsync();
-            return RedirectToAction("Add");
+
+            var usernameCheking = mvcDbSContext.Employees.Any(x => x.UserName.Equals(employee.UserName));
+
+
+            if (ModelState.IsValid)
+            {
+
+                await mvcDbSContext.Employees.AddAsync(employee);
+                await mvcDbSContext.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Add");
+            }
         }
 
         [HttpGet]
@@ -80,6 +98,8 @@ namespace test1.Controllers
                     Id = employee.Id,
 
                     UID = employee.UID,
+
+
                     Name = employee.Name,
 
                     UserName = employee.UserName,
@@ -114,6 +134,7 @@ namespace test1.Controllers
             var employee = await mvcDbSContext.Employees.FindAsync(model.Id);
             if (employee != null)
             {
+                employee.Id = model.Id;
                 employee.UID = model.UID;
                 employee.Name = model.Name;
                 employee.Password = model.Password;
@@ -135,23 +156,5 @@ namespace test1.Controllers
             return RedirectToAction("index");
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> Login()
-        //{
-
-        //    await Task.Delay(1000);
-
-
-        //    if (  Username == "employee" && Password == "password")
-        //    {
-
-        //        return RedirectToPage("/Index");
-        //    }
-        //    else
-        //    {
-        //        ModelState.AddModelError("", "Invalid username or password");
-        //        return RedirectToAction("Login");
-        //    }
-        //}
     }
 }
