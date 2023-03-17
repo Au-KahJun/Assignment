@@ -32,10 +32,10 @@
                 <td>@employee.Team</td>
                 <td>@employee.Security</td>
                 <td>@employee.Email</td>
-                <td>@employee.CreatedDate.ToString("dd-MM-yyyy")</td>
+                <td>@employee.CreatedDate.ToString("MM-dd-yyyy")</td>
                 <td>@employee.Status</td>
-                <td><a href="View/@employee.Id">Edit</a></td>
-                <td><a href="View/@employee.Id">Delete</a></td>
+                <td><a class="btn btn-primary" href="View/@employee.Id">Edit</a></td>
+                <td><button class="btn btn-danger" asp-action="Delete" asp-controller="Employees">Delete</button></td>
      </tr>
 
         }

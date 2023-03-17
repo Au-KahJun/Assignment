@@ -13,41 +13,42 @@
     <div class="mb-3">
         <label for="" class="form-label">User ID</label>
         <input type="text" class="form-control" asp-for="UID">
+        <span asp-validation-for="UID" class="text-danger"></span>
 
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Name</label>
         <input type="text" class="form-control" asp-for="Name">
-
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
         <label for="" class="form-label">User Name</label>
         <input type="text" class="form-control" asp-for="UserName">
-
+        <span asp-validation-for="UserName" class="text-danger"></span>
 
     </div>
     <div class="mb-3">
-        <label for="" class="form-label">Email Address</label>
+        <label for="Form-lable" class="form-label">Email Address</label>
         <input type="email" class="form-control" asp-for="Email">
-
+        <span asp-validation-for="Email" class="text-danger"></span>
 
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Password</label>
         <input type=" " class="form-control" asp-for="Password">
-
+        <span asp-validation-for="Password" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Confirm Password</label>
         <input type="text" class="form-control" asp-for="ConfPassword">
-
+        <span asp-validation-for="ConfPassword" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
         <label for="" class="form-label">Join Date</label>
         <input type="date" class="form-control" asp-for="Date">
-
+        <span asp-validation-for="CreatedDate" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Position</label>
@@ -68,7 +69,7 @@
             <option>Support Engineer</option>
             <option>Infrastructure Support Engineer</option>
         </select>
-
+        <span asp-validation-for="Position" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Team</label>
@@ -83,7 +84,7 @@
             <option>Quality Assuarance</option>
 
         </select>
-
+        <span asp-validation-for="Team" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Status</label>
@@ -91,20 +92,19 @@
             <option>Active</option>
             <option>Disabled</option>
             <option>Suspended</option>
-
-
         </select>
-
+        <span asp-validation-for="Status" class="text-danger"></span>
     </div>
 
 
     <div class="mb-3">
         <label for="" class="form-label">Security</label>
         <input type="text" class="form-control" asp-for="Security">
-
+        <span asp-validation-for="UID" class="text-danger"></span>
     </div>
 
     <button href="/view" class="btn btn-primary">Back</button>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <button class="btn btn-danger" asp-action="Delete" asp-controller="Employees">Delete</button>
     
 </form>

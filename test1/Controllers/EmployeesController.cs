@@ -69,8 +69,28 @@ namespace test1.Controllers
                 Status = addEmployeeRequest.Status
 
             };
-
+            var idCheking = mvcDbSContext.Employees.Any(x => x.UID.Equals(employee.UID));
+            if (idCheking == true)
+            {
+                ViewData["ValidateMessage"] = "This number for UID is already been used";
+                return View(addEmployeeRequest);
+            }
+            var nameCheking = mvcDbSContext.Employees.Any(x => x.Name.Equals(employee.Name));
+            if (nameCheking == true)
+            {
+                ViewData["ValidateMessage"] = "This name is already been used";
+                return View(addEmployeeRequest);
+            }
             var usernameCheking = mvcDbSContext.Employees.Any(x => x.UserName.Equals(employee.UserName));
+            if (usernameCheking == true)
+            {
+                ViewData["ValidateMessage"] = "This Username is already used";
+                return View(addEmployeeRequest);
+            }
+
+
+
+
 
 
             if (ModelState.IsValid)
@@ -82,7 +102,7 @@ namespace test1.Controllers
             }
             else
             {
-                return RedirectToAction("Add");
+                return View(addEmployeeRequest);
             }
         }
 
@@ -155,6 +175,18 @@ namespace test1.Controllers
 
             return RedirectToAction("index");
         }
-
+        public async Task<IActionResult> Delete(UpdateEmployeeVM model)
+        {
+            var employee = await mvcDbSContext.Employees.FindAsync(model.Id);
+            if (employee != null)
+            {
+                mvcDbSContext.Employees.Remove(employee);
+                await mvcDbSContext.SaveChangesAsync();
+                return RedirectToAction("index");
+            }
+            return RedirectToAction("index");
+        }
     }
+
+
 }

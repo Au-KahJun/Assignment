@@ -3,10 +3,19 @@
 }
 <h1>Add Employee</h1>
 <form method="post" action="Add" class=" mt-5">
+    @if (ViewData["ValidateMessage"] != null)
+        {
+            <div>
+                <p class="alert alert-danger" id="errorMessage">@ViewData["ValidateMessage"]</p>
+            </div>
+            <br />
+            <br />
+        }
+
     <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
     <div class="mb-3">
         <label for="" class="form-label">User ID</label>
-        <input type="text" class="form-control" asp-for="UID">
+        <input class="form-control" asp-for="UID">
         <span asp-validation-for="UID" class="text-danger"></span>
 
     </div>
@@ -99,6 +108,6 @@
         <span asp-validation-for="UID" class="text-danger"></span>
     </div>
     
-    
+    <button href="/view" class="btn btn-primary">Back</button>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
